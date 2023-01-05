@@ -1,3 +1,4 @@
+import 'package:besenior_shop_course/features/feature_intro/presentation/screens/intro_screen.dart';
 import 'package:besenior_shop_course/features/feature_intro/presentation/screens/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -18,7 +19,11 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
+      initialRoute: "/",
+      routes: {
+        IntroScreen.routeName: (context)=> const IntroScreen(),
+      },
       debugShowCheckedModeBanner: false,
       title: 'besenior shop',
       home: SplashScreen(),
