@@ -41,6 +41,7 @@ dependencies:
   bloc: ^8.0.3
   connectivity_plus: ^3.0.2
   loading_animation_widget: ^1.2.0+3
+  shimmer: ^2.0.0
 
 
 

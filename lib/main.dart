@@ -1,4 +1,4 @@
-import 'package:besenior_shop_course/features/feature_intro/presentation/screens/intro_screen.dart';
+import 'package:besenior_shop_course/features/feature_intro/presentation/screens/intro_main_wrapper.dart';
 import 'package:besenior_shop_course/features/feature_intro/presentation/screens/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       initialRoute: "/",
       routes: {
-        IntroScreen.routeName: (context)=> const IntroScreen(),
+        IntroMainWrapper.routeName: (context)=> IntroMainWrapper(),
       },
       debugShowCheckedModeBanner: false,
       title: 'besenior shop',

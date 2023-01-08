@@ -1,7 +1,7 @@
 
 import 'package:besenior_shop_course/common/utils/custom_snackbar.dart';
 import 'package:besenior_shop_course/features/feature_intro/presentation/bloc/splash_cubit/splash_cubit.dart';
-import 'package:besenior_shop_course/features/feature_intro/presentation/screens/intro_screen.dart';
+import 'package:besenior_shop_course/features/feature_intro/presentation/screens/intro_main_wrapper.dart';
 import 'package:delayed_widget/delayed_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -96,7 +96,7 @@ class _SplashScreenState extends State<SplashScreen> {
   Future<void> gotoHome() {
     return Future.delayed(const Duration(seconds: 3),(){
       CustomSnackBar.showSnack(context, "وارد شدید", Colors.green);
-      Navigator.pushNamed(context, IntroScreen.routeName,arguments: "besenior");
+      Navigator.pushNamed(context, IntroMainWrapper.routeName);
     });
 
   }
