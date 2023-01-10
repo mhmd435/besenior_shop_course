@@ -1,3 +1,4 @@
+import 'package:besenior_shop_course/config/my_theme.dart';
 import 'package:besenior_shop_course/features/feature_intro/presentation/screens/intro_main_wrapper.dart';
 import 'package:besenior_shop_course/features/feature_intro/presentation/screens/splash_screen.dart';
 import 'package:flutter/material.dart';
@@ -20,13 +21,18 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      themeMode: ThemeMode.light,
+      theme: MyThemes.lightTheme,
+      darkTheme: MyThemes.darkTheme,
       initialRoute: "/",
       routes: {
         IntroMainWrapper.routeName: (context)=> IntroMainWrapper(),
       },
       debugShowCheckedModeBanner: false,
       title: 'besenior shop',
-      home: SplashScreen(),
+      home: Directionality(
+          textDirection: TextDirection.rtl,
+          child: SplashScreen()),
     );
   }
 }

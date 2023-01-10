@@ -10,16 +10,19 @@ class IntroPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    var textTheme = Theme.of(context).textTheme;
+
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 30.0),
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.end,
         children: [
           DelayedWidget(
             delayDuration: const Duration(milliseconds: 300),// Not required
             animationDuration: const Duration(seconds: 1),// Not required
             animation: DelayedAnimations.SLIDE_FROM_BOTTOM,// Not required
-            child: Text(title, style: const TextStyle(fontSize: 23,color: Colors.black,fontWeight: FontWeight.bold, fontFamily: 'Vazir'),),
+            child: Text(title, style: textTheme.titleMedium,),
           ),
           const SizedBox(height: 10,),
           DelayedWidget(
@@ -29,7 +32,7 @@ class IntroPage extends StatelessWidget {
               child: Shimmer.fromColors(
                   baseColor: Colors.black,
                   highlightColor: Colors.grey,
-                  child: Text(description, style: const TextStyle(fontSize: 16,color: Colors.white,fontWeight: FontWeight.w300,height: 1.4, fontFamily: 'Vazir'),))
+                  child: Text(description, style: textTheme.bodyMedium))
           ),
         ],
       ),
