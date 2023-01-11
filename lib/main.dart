@@ -3,6 +3,7 @@ import 'package:besenior_shop_course/features/feature_intro/presentation/screens
 import 'package:besenior_shop_course/features/feature_intro/presentation/screens/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 
 import 'features/feature_intro/presentation/bloc/splash_cubit/splash_cubit.dart';
 
@@ -25,14 +26,22 @@ class MyApp extends StatelessWidget {
       theme: MyThemes.lightTheme,
       darkTheme: MyThemes.darkTheme,
       initialRoute: "/",
+      locale: const Locale("fa",""),
+      localizationsDelegates: const [
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
+      supportedLocales: const [
+        Locale("en",""),
+        Locale("fa",""),
+      ],
       routes: {
         IntroMainWrapper.routeName: (context)=> IntroMainWrapper(),
       },
       debugShowCheckedModeBanner: false,
       title: 'besenior shop',
-      home: Directionality(
-          textDirection: TextDirection.rtl,
-          child: SplashScreen()),
+      home: SplashScreen(),
     );
   }
 }

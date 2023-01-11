@@ -42,11 +42,15 @@ dependencies:
   connectivity_plus: ^3.0.2
   loading_animation_widget: ^1.2.0+3
   shimmer: ^2.0.0
+  smooth_page_indicator: ^0.3.0-nullsafety.0
+
 
 
 
 dev_dependencies:
   flutter_test:
+    sdk: flutter
+  flutter_localizations: # Add this line
     sdk: flutter
 
   # The "flutter_lints" package below contains a set of recommended lints to

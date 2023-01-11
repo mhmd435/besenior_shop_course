@@ -16,7 +16,7 @@ class IntroPage extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 30.0),
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.end,
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           DelayedWidget(
             delayDuration: const Duration(milliseconds: 300),// Not required

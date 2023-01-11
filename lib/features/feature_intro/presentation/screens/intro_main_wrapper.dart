@@ -2,6 +2,7 @@
 import 'package:besenior_shop_course/features/feature_intro/presentation/widgets/intro_page.dart';
 import 'package:delayed_widget/delayed_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 import '../widgets/get_start_btn.dart';
 
@@ -68,6 +69,26 @@ class IntroMainWrapper extends StatelessWidget {
               ),
             ),
           ),
+
+          Positioned(
+              bottom: height * 0.07,
+              left: 30,
+              child: DelayedWidget(
+                  delayDuration: const Duration(milliseconds: 300),// Not required
+                  animationDuration: const Duration(seconds: 1),// Not required
+                  animation: DelayedAnimations.SLIDE_FROM_BOTTOM,// Not required
+                  child: SmoothPageIndicator(
+                      controller: pageController,
+                      count: 3,
+                      effect: ExpandingDotsEffect(
+                        dotWidth: 10,
+                        dotHeight: 10,
+                        spacing: 5,
+                        activeDotColor: Colors.amber
+                      ),
+                  )
+              ),
+          )
         ],
       ),
     );
