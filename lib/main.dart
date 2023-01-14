@@ -1,6 +1,7 @@
 import 'package:besenior_shop_course/config/my_theme.dart';
 import 'package:besenior_shop_course/features/feature_intro/presentation/screens/intro_main_wrapper.dart';
 import 'package:besenior_shop_course/features/feature_intro/presentation/screens/splash_screen.dart';
+import 'package:besenior_shop_course/test_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -38,6 +39,7 @@ class MyApp extends StatelessWidget {
       ],
       routes: {
         IntroMainWrapper.routeName: (context)=> IntroMainWrapper(),
+        TestScreen.routeName: (context)=> TestScreen(),
       },
       debugShowCheckedModeBanner: false,
       title: 'besenior shop',
