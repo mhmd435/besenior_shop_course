@@ -7,6 +7,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
 
+import '../../../../common/utils/prefs_operator.dart';
+import '../../../../locator.dart';
+import '../../../../test_screen.dart';
+
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
 
@@ -93,10 +97,17 @@ class _SplashScreenState extends State<SplashScreen> {
     );
   }
 
-  Future<void> gotoHome() {
+  Future<void> gotoHome() async {
+    PrefsOperator prefsOperator = locator<PrefsOperator>();
+    var shouldShowIntro = await prefsOperator.getIntroState();
+
     return Future.delayed(const Duration(seconds: 3),(){
-      CustomSnackBar.showSnack(context, "وارد شدید", Colors.green);
-      Navigator.pushNamed(context, IntroMainWrapper.routeName);
+
+      if(shouldShowIntro){
+        Navigator.pushNamedAndRemoveUntil(context, IntroMainWrapper.routeName,ModalRoute.withName("intro_main_wrapper"),);
+      }else{
+        Navigator.pushNamedAndRemoveUntil(context, TestScreen.routeName, ModalRoute.withName("test_screen"),);
+      }
     });
 
   }

@@ -7,8 +7,13 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
 import 'features/feature_intro/presentation/bloc/splash_cubit/splash_cubit.dart';
+import 'locator.dart';
 
-void main() {
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  await initLocator();
+
   runApp(MultiBlocProvider(
       providers: [
         BlocProvider(create: (_)=> SplashCubit()),

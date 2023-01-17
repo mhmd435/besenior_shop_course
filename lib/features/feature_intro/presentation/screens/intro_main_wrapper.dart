@@ -1,4 +1,5 @@
 
+import 'package:besenior_shop_course/common/utils/prefs_operator.dart';
 import 'package:besenior_shop_course/features/feature_intro/presentation/bloc/intro_cubit/intro_cubit.dart';
 import 'package:besenior_shop_course/features/feature_intro/presentation/widgets/intro_page.dart';
 import 'package:besenior_shop_course/test_screen.dart';
@@ -7,6 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
+import '../../../../locator.dart';
 import '../widgets/get_start_btn.dart';
 
 class IntroMainWrapper extends StatelessWidget {
@@ -76,6 +78,9 @@ class IntroMainWrapper extends StatelessWidget {
                           return GetStartBtn(
                             text: 'شروع کنید',
                             onTap: (){
+                              PrefsOperator prefsOperator = locator<PrefsOperator>();
+                              prefsOperator.changeIntroState();
+
                               /// goto home screen
                               Navigator.pushNamedAndRemoveUntil(context, TestScreen.routeName, ModalRoute.withName("test_screen"),);
                             },
