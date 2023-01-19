@@ -46,6 +46,9 @@ dependencies:
   get_it: ^7.2.0
   dio: ^4.0.6
   shared_preferences: ^2.0.15
+  flutter_svg: ^1.1.5
+  font_awesome_flutter: ^10.2.1
+  badges: ^2.0.3
 
 
 
