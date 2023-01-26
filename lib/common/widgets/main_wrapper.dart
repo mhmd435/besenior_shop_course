@@ -1,5 +1,6 @@
 
 import 'package:besenior_shop_course/common/widgets/bottom_nav.dart';
+import 'package:besenior_shop_course/features/feature_home/presentation/screens/home_screen.dart';
 import 'package:flutter/material.dart';
 
 class MainWrapper extends StatelessWidget {
@@ -10,7 +11,7 @@ class MainWrapper extends StatelessWidget {
   PageController pageController = PageController();
 
   List<Widget> topLevelScreens = [
-    Container(color: Colors.red,),
+    HomeScreen(),
     Container(color: Colors.black,),
     Container(color: Colors.amber,),
     Container(color: Colors.green,),
@@ -22,9 +23,19 @@ class MainWrapper extends StatelessWidget {
     return Scaffold(
       bottomNavigationBar: BottomNav(controller: pageController),
 
-      body: PageView(
-        controller: pageController,
-        children: topLevelScreens,
+      body: Column(
+        children: [
+          /// search box
+
+
+          const SizedBox(height: 60,),
+          Expanded(
+            child: PageView(
+              controller: pageController,
+              children: topLevelScreens,
+            ),
+          ),
+        ],
       ),
     );
   }
