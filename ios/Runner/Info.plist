@@ -28,6 +28,13 @@
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
 	<string>Main</string>
+
+	<key>NSLocationWhenInUseUsageDescription</key>
+    <string>we need user location for set his ecommerce</string>
+    <key>NSLocationAlwaysUsageDescription</key>
+    <string>we need user location for set his ecommerce</string>
+
+
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>

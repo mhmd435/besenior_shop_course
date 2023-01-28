@@ -25,7 +25,7 @@ class BottomNav extends StatelessWidget {
       notchMargin: 5,
       color: Colors.white,
       child: SizedBox(
-        height: 70,
+        height: 72,
         child: BlocBuilder<BottomNavCubit, int>(
           builder: (context, int state) {
             return Row(
@@ -33,7 +33,7 @@ class BottomNav extends StatelessWidget {
               children: [
                 SizedBox(
                   width: MediaQuery.of(context).size.width / 2,
-                  height: 70,
+                  height: 72,
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
@@ -82,7 +82,7 @@ class BottomNav extends StatelessWidget {
                 ),
                 SizedBox(
                   width: MediaQuery.of(context).size.width / 2,
-                  height: 70,
+                  height: 72,
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [

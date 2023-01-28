@@ -10,9 +10,9 @@ class HomeRepository {
   HomeApiProvider apiProvider;
   HomeRepository(this.apiProvider);
 
-  Future<DataState<HomeModel>> fetchHomeData() async {
+  Future<DataState<HomeModel>> fetchHomeData(lat, lon) async {
     try{
-      Response response = await apiProvider.callHomeData();
+      Response response = await apiProvider.callHomeData(lat, lon);
       if(response.statusCode == 200){
         final HomeModel homeModel = HomeModel.fromJson(response.data);
         return DataSuccess(homeModel);

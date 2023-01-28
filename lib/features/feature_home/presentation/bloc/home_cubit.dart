@@ -12,10 +12,10 @@ class HomeCubit extends Cubit<HomeState> {
   HomeRepository homeRepository;
   HomeCubit(this.homeRepository) : super(HomeState(homeDataStatus: HomeDataLoading()));
 
-  Future<void> callHomeDataEvent() async {
+  Future<void> callHomeDataEvent(lat, lon) async {
     emit(state.copyWith(newHomeDataStatus: HomeDataLoading()));
 
-    DataState dataState = await homeRepository.fetchHomeData();
+    DataState dataState = await homeRepository.fetchHomeData(lat, lon);
 
     if(dataState is DataSuccess){
       /// emit completed

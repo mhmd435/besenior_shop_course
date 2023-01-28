@@ -6,6 +6,7 @@ import 'package:besenior_shop_course/locator.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:location/location.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 import '../../../../common/widgets/dot_loading_widget.dart';
@@ -24,6 +25,42 @@ class _HomeScreenState extends State<HomeScreen> {
   int _currentPage = 0;
   Timer? _timer;
 
+  late bool _serviceEnabled;
+  late PermissionStatus _permissionGranted;
+  var lat = 35.69611;
+  var lon = 51.42306;
+  LocationData? _userLocation;
+
+  Future<void> getUserLocation(BuildContext context) async {
+    Location location = Location();
+
+    // Check if location service is enable
+    _serviceEnabled = await location.serviceEnabled();
+    if (!_serviceEnabled) {
+      _serviceEnabled = await location.requestService();
+      if (!_serviceEnabled) {
+        BlocProvider.of<HomeCubit>(context).callHomeDataEvent(lat, lon);
+        return;
+      }
+    }
+
+    // Check if permission is granted
+    _permissionGranted = await location.hasPermission();
+    if (_permissionGranted == PermissionStatus.denied) {
+      _permissionGranted = await location.requestPermission();
+      if (_permissionGranted != PermissionStatus.granted) {
+        /// call api with default lat lon
+        BlocProvider.of<HomeCubit>(context).callHomeDataEvent(lat, lon);
+        return;
+      }
+    }
+
+    final _locationData = await location.getLocation();
+    lat = _locationData.latitude!;
+    lon = _locationData.longitude!;
+    BlocProvider.of<HomeCubit>(context).callHomeDataEvent(lat, lon);
+
+  }
 
   @override
   void dispose() {
@@ -46,8 +83,7 @@ class _HomeScreenState extends State<HomeScreen> {
       create: (context) => HomeCubit(locator()),
       child: Builder(
           builder: (context) {
-            /// call api
-            BlocProvider.of<HomeCubit>(context).callHomeDataEvent();
+            getUserLocation(context);
 
             return BlocBuilder<HomeCubit, HomeState>(
               buildWhen: (previous, current){
@@ -191,7 +227,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           style: ElevatedButton.styleFrom(primary: Colors.amber.shade800),
                           onPressed: (){
                             /// call all data again
-                            BlocProvider.of<HomeCubit>(context).callHomeDataEvent();
+                            BlocProvider.of<HomeCubit>(context).callHomeDataEvent(lat, lon);
                           },
                           child: const Text("تلاش دوباره"),)
                       ],

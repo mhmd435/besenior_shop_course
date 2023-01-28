@@ -9,9 +9,13 @@ class HomeApiProvider {
   HomeApiProvider(this.dio);
 
 
-  dynamic callHomeData() async {
+  dynamic callHomeData(lat, lon) async {
     final response = await dio.get(
-      "${Constants.baseUrl}/mainData"
+      "${Constants.baseUrl}/mainData",
+      queryParameters: {
+        "lat" : lat,
+        "lon" : lon,
+      }
     );
 
     log(response.toString());
