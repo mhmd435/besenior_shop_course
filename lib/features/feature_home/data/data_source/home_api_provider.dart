@@ -1,6 +1,7 @@
 
 import 'dart:developer';
 
+import 'package:besenior_shop_course/common/error_handling/check_exceptions.dart';
 import 'package:besenior_shop_course/config/constants.dart';
 import 'package:dio/dio.dart';
 
@@ -16,7 +17,9 @@ class HomeApiProvider {
         "lat" : lat,
         "lon" : lon,
       }
-    );
+    ).onError((DioError error, stackTrace){
+      return CheckExceptions.response(error.response!);
+    });
 
     log(response.toString());
 
