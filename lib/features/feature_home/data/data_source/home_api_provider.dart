@@ -15,7 +15,7 @@ class HomeApiProvider {
       "${Constants.baseUrl}/mainData",
       queryParameters: {
         "lat" : lat,
-        "lon" : lon,
+        "long" : lon,
       }
     ).onError((DioError error, stackTrace){
       return CheckExceptions.response(error.response!);

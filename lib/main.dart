@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:besenior_shop_course/common/blocs/bottom_nav_cubit/bottom_nav_cubit.dart';
 import 'package:besenior_shop_course/config/my_theme.dart';
 import 'package:besenior_shop_course/features/feature_intro/presentation/screens/intro_main_wrapper.dart';
@@ -13,6 +15,8 @@ import 'locator.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
+  HttpOverrides.global = MyHttpOverrides();
 
   await initLocator();
 
@@ -54,5 +58,13 @@ class MyApp extends StatelessWidget {
       title: 'besenior shop',
       home: SplashScreen(),
     );
+  }
+}
+
+class MyHttpOverrides extends HttpOverrides{
+  @override
+  HttpClient createHttpClient(SecurityContext? context){
+    return super.createHttpClient(context)
+      ..badCertificateCallback = (X509Certificate cert, String host, int port)=> true;
   }
 }
