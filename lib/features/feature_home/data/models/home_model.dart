@@ -68,13 +68,19 @@ class Data {
         suggestionProducts?.add(SuggestionProducts.fromJson(v));
       });
     }
-    nearShops = json['nearShops'];
+
+    if (json['nearShops'] != null) {
+      nearShops = [];
+      json['nearShops'].forEach((v) {
+        nearShops?.add(NearShops.fromJson(v));
+      });
+    }
   }
   List<Sliders>? sliders;
   List<Banners>? banners;
   List<Categories>? categories;
   List<SuggestionProducts>? suggestionProducts;
-  String? nearShops;
+  List<NearShops>? nearShops;
 
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};
@@ -369,6 +375,50 @@ class Sliders {
     map['img'] = img;
     map['link'] = link;
     map['updated_at'] = updatedAt;
+    return map;
+  }
+
+}
+
+/// id : 1
+/// name : "مدیر"
+/// companyName : "نیاز شاپ"
+/// avatar : "https://shopbs.besenior.ir/images/image-not-found.png"
+/// lat : null
+/// long : null
+
+class NearShops {
+  NearShops({
+    this.id,
+    this.name,
+    this.companyName,
+    this.avatar,
+    this.lat,
+    this.long,});
+
+  NearShops.fromJson(dynamic json) {
+    id = json['id'];
+    name = json['name'];
+    companyName = json['companyName'];
+    avatar = json['avatar'];
+    lat = json['lat'];
+    long = json['long'];
+  }
+  int? id;
+  String? name;
+  String? companyName;
+  String? avatar;
+  dynamic lat;
+  dynamic long;
+
+  Map<String, dynamic> toJson() {
+    final map = <String, dynamic>{};
+    map['id'] = id;
+    map['name'] = name;
+    map['companyName'] = companyName;
+    map['avatar'] = avatar;
+    map['lat'] = lat;
+    map['long'] = long;
     return map;
   }
 
