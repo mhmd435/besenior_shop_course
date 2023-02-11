@@ -51,6 +51,8 @@ dependencies:
   badges: ^2.0.3
   cached_network_image: ^3.2.2
   location: ^4.4.0
+  flutter_typeahead: ^3.2.0
+
 
 
 
