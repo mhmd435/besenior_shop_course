@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:besenior_shop_course/common/blocs/bottom_nav_cubit/bottom_nav_cubit.dart';
 import 'package:besenior_shop_course/config/my_theme.dart';
+import 'package:besenior_shop_course/features/feature_auth/presentation/screens/mobile_signup_screen.dart';
 import 'package:besenior_shop_course/features/feature_intro/presentation/screens/intro_main_wrapper.dart';
 import 'package:besenior_shop_course/features/feature_intro/presentation/screens/splash_screen.dart';
 import 'package:besenior_shop_course/test_screen.dart';
@@ -53,10 +54,12 @@ class MyApp extends StatelessWidget {
         IntroMainWrapper.routeName: (context)=> IntroMainWrapper(),
         TestScreen.routeName: (context)=> TestScreen(),
         MainWrapper.routeName: (context)=> MainWrapper(),
+        MobileSignUpScreen.routeName: (context)=> MobileSignUpScreen(),
       },
       debugShowCheckedModeBanner: false,
       title: 'besenior shop',
-      home: SplashScreen(),
+      home: MobileSignUpScreen(),
+      // home: SplashScreen(),
     );
   }
 }
