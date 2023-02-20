@@ -62,8 +62,8 @@ class MyApp extends StatelessWidget {
       },
       debugShowCheckedModeBanner: false,
       title: 'besenior shop',
-      home: MobileSignUpScreen(),
-      // home: SplashScreen(),
+      // home: MobileSignUpScreen(),
+      home: SplashScreen(),
     );
   }
 }

@@ -1,6 +1,7 @@
 
 import 'package:besenior_shop_course/common/widgets/bottom_nav.dart';
 import 'package:besenior_shop_course/features/feature_home/presentation/screens/home_screen.dart';
+import 'package:besenior_shop_course/features/feature_home/presentation/screens/profile_screen.dart';
 import 'package:besenior_shop_course/features/feature_product/presentation/screens/category_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -20,7 +21,7 @@ class MainWrapper extends StatelessWidget {
   List<Widget> topLevelScreens = [
     HomeScreen(),
     CategoryScreen(),
-    Container(color: Colors.amber,),
+    ProfileScreen(),
     Container(color: Colors.green,),
   ];
 
