@@ -1,5 +1,7 @@
 
 import 'package:android_sms_retriever/android_sms_retriever.dart';
+import 'package:besenior_shop_course/common/utils/prefs_operator.dart';
+import 'package:besenior_shop_course/locator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:persian_number_utility/persian_number_utility.dart';
@@ -290,7 +292,7 @@ class _MobileSignUpScreenState extends State<MobileSignUpScreen> {
                     ),
                   ),
                 ),
-                SizedBox(height: 10,),
+                const SizedBox(height: 10,),
                 /// login btn
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 20.0),
@@ -325,16 +327,6 @@ class _MobileSignUpScreenState extends State<MobileSignUpScreen> {
 
   showSnack(context, String message,Color color){
     ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(message,style: const TextStyle(color: Colors.white, fontWeight: FontWeight.w700, fontFamily: "Vazir"),),backgroundColor: color,));
-  }
-
-  Future<void> saveDataToPrefs(SignupModel signupModel) async {
-    // Obtain shared preferences.
-    final prefs = await SharedPreferences.getInstance();
-
-    await prefs.setString('user_token', signupModel.data!.token!);
-    await prefs.setBool('user_loggedIn', true);
-    await prefs.setString('user_name', signupModel.data!.name ?? "نام کاربری");
-    await prefs.setString('user_mobile', signupModel.data!.mobile.toString().toEnglishDigit()  ?? "شماره تماس");
   }
 
   void showMyBottomSheet(BuildContext context, LoginWithSmsModel loginWithSmsModel) {
@@ -424,9 +416,10 @@ class _MobileSignUpScreenState extends State<MobileSignUpScreen> {
 
                       if(state.signUpDataStatus is SignUpCompleted) {
                         SignUpCompleted signUpCompleted = state.signUpDataStatus as SignUpCompleted;
+                        SignupModel signupModel = signUpCompleted.signupModel;
                         showSnack(context, "ثبت نام با موفقیت انجام شد", Colors.green);
-                        saveDataToPrefs(signUpCompleted.signupModel);
-                        Navigator.pushNamedAndRemoveUntil(context, MainWrapper.routeName, ModalRoute.withName("/main_wrapper"),);
+                        PrefsOperator prefsOperator = locator();
+                        prefsOperator.saveUserData(signupModel.data!.token!, signupModel.data!.name ?? "نام کاربری", signupModel.data!.mobile.toString().toEnglishDigit());                        Navigator.pushNamedAndRemoveUntil(context, MainWrapper.routeName, ModalRoute.withName("/main_wrapper"),);
                       }
                     },
                     builder: (context, state) {

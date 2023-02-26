@@ -9,10 +9,10 @@ class PrefsOperator {
   }
 
 
-  saveUserData(token, userName, email) async {
+  saveUserData(token, userName, mobile) async {
     sharedPreferences.setString("user_token", token);
     sharedPreferences.setString("user_name", userName);
-    sharedPreferences.setString("user_email", email);
+    sharedPreferences.setString("user_mobile", mobile);
     sharedPreferences.setBool("loggedIn", true);
   }
 
