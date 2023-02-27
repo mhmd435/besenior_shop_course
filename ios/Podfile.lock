@@ -3,6 +3,8 @@ PODS:
     - Flutter
     - ReachabilitySwift
   - Flutter (1.0.0)
+  - flutter_keyboard_visibility (0.0.1):
+    - Flutter
   - FMDB (2.7.5):
     - FMDB/standard (= 2.7.5)
   - FMDB/standard (2.7.5)
@@ -22,6 +24,7 @@ PODS:
 DEPENDENCIES:
   - connectivity_plus (from `.symlinks/plugins/connectivity_plus/ios`)
   - Flutter (from `Flutter`)
+  - flutter_keyboard_visibility (from `.symlinks/plugins/flutter_keyboard_visibility/ios`)
   - location (from `.symlinks/plugins/location/ios`)
   - path_provider_foundation (from `.symlinks/plugins/path_provider_foundation/ios`)
   - shared_preferences_foundation (from `.symlinks/plugins/shared_preferences_foundation/ios`)
@@ -37,6 +40,8 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/connectivity_plus/ios"
   Flutter:
     :path: Flutter
+  flutter_keyboard_visibility:
+    :path: ".symlinks/plugins/flutter_keyboard_visibility/ios"
   location:
     :path: ".symlinks/plugins/location/ios"
   path_provider_foundation:
@@ -49,6 +54,7 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   connectivity_plus: 413a8857dd5d9f1c399a39130850d02fe0feaf7e
   Flutter: f04841e97a9d0b0a8025694d0796dd46242b2854
+  flutter_keyboard_visibility: 0339d06371254c3eb25eeb90ba8d17dca8f9c069
   FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
   location: 3a2eed4dd2fab25e7b7baf2a9efefe82b512d740
   path_provider_foundation: 37748e03f12783f9de2cb2c4eadfaa25fe6d4852

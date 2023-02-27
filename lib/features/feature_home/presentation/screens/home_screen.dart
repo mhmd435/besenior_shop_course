@@ -302,7 +302,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                             return Column(
                                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                                               children: [
-                                                SvgPicture.asset('assets/images/amazing.svg',width: 120,),
+                                                SvgPicture.asset('assets/images/amazing.svg',width: 120,color: Colors.red,),
                                                 Image.asset('assets/images/box.png',width: 150,),
                                               ],
                                             );
@@ -668,7 +668,6 @@ class _HomeScreenState extends State<HomeScreen> {
                                                       Expanded(
                                                         child: Center(
                                                           child: CachedNetworkImage(
-                                                            // imageUrl: "https://niyaz.shop/uploads/products/thum-%D9%BE%D8%B1%D8%AA%D9%82%D8%A7%D9%84-%D8%B1%D8%B3%D9%85%DB%8C-16630019485051793.png",
                                                             imageUrl: thirdProductsList.items![index].image!,
                                                             fit: BoxFit.cover,
                                                             useOldImageOnUrlChange: true,

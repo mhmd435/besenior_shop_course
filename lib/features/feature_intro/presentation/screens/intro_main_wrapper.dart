@@ -1,5 +1,6 @@
 
 import 'package:besenior_shop_course/common/utils/prefs_operator.dart';
+import 'package:besenior_shop_course/common/widgets/main_wrapper.dart';
 import 'package:besenior_shop_course/features/feature_intro/presentation/bloc/intro_cubit/intro_cubit.dart';
 import 'package:besenior_shop_course/features/feature_intro/presentation/widgets/intro_page.dart';
 import 'package:besenior_shop_course/test_screen.dart';
@@ -82,7 +83,7 @@ class IntroMainWrapper extends StatelessWidget {
                               prefsOperator.changeIntroState();
 
                               /// goto home screen
-                              Navigator.pushNamedAndRemoveUntil(context, TestScreen.routeName, ModalRoute.withName("test_screen"),);
+                              Navigator.pushNamedAndRemoveUntil(context, MainWrapper.routeName, ModalRoute.withName("main_wrapper"),);
                             },
                           );
                         }else{
