@@ -27,6 +27,7 @@ class ProductsApiProvider {
       print(response);
       return response;
     } on DioError catch(e) {
+      print(e.toString());
       return CheckExceptions.response(e.response!);
     }
 

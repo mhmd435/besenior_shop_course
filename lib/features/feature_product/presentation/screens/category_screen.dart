@@ -4,8 +4,10 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../common/arguments/productsArgument.dart';
 import '../../../../common/widgets/dot_loading_widget.dart';
 import '../../../../locator.dart';
+import 'all_products_screen.dart';
 
 class CategoryScreen extends StatelessWidget {
   const CategoryScreen({Key? key}) : super(key: key);
@@ -41,7 +43,7 @@ class CategoryScreen extends StatelessWidget {
                       return GestureDetector(
                         onTap: (){
                           /// goto All products screen
-                          // Navigator.pushNamed(context, AllProductsScreen.routeName, arguments: ProductsArguments(categoryId: categoryData.id!),);
+                          Navigator.pushNamed(context, AllProductsScreen.routeName, arguments: ProductsArguments(categoryId: categoryData.id!),);
                         },
                         child: Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 15.0),
