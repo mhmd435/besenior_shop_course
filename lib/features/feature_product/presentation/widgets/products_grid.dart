@@ -24,7 +24,7 @@ class ProductsGrid extends StatelessWidget {
 
     setupScrollController(context);
     /// call api for data
-    BlocProvider.of<AllProductsCubit>(context).loadProductsData(ProductsParams(categories: (categoryId == null) ? [] : [categoryId!],search: searchText ?? ""));
+    BlocProvider.of<AllProductsCubit>(context).loadProductsData(ProductsParams(categories: categoryId,search: searchText ?? ""));
 
     return BlocBuilder<AllProductsCubit, AllProductsState>(
       builder: (context, state) {
@@ -41,7 +41,7 @@ class ProductsGrid extends StatelessWidget {
           return RefreshIndicator(
             onRefresh: () async {
               // BlocProvider.of<AllProductsCubit>(context).add(ResetNextStartEvent());
-              BlocProvider.of<AllProductsCubit>(context).loadProductsData(ProductsParams(categories: (categoryId == null) ? [] : [categoryId!],search: searchText ?? ""));
+              BlocProvider.of<AllProductsCubit>(context).loadProductsData(ProductsParams(categories: categoryId,search: searchText ?? ""));
             },
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 10.0),
@@ -222,7 +222,7 @@ class ProductsGrid extends StatelessWidget {
                   style: ElevatedButton.styleFrom(backgroundColor: Colors.redAccent),
                   onPressed: (){
                     /// call all data again
-                    BlocProvider.of<AllProductsCubit>(context).loadProductsData(ProductsParams(categories: (categoryId == null) ? [] : [categoryId!],search: searchText ?? ""));
+                    BlocProvider.of<AllProductsCubit>(context).loadProductsData(ProductsParams(categories: categoryId,search: searchText ?? ""));
 
                   },
                   child:  const Text("تلاس دوباره"),)
@@ -240,7 +240,7 @@ class ProductsGrid extends StatelessWidget {
     scrollController.addListener(() {
       if(scrollController.position.atEdge){
         if(scrollController.position.pixels != 0){
-          BlocProvider.of<AllProductsCubit>(context).loadProductsData(ProductsParams(categories: (categoryId == null) ? [] : [categoryId!],search: searchText ?? ""));
+          BlocProvider.of<AllProductsCubit>(context).loadProductsData(ProductsParams(categories: categoryId,search: searchText ?? ""));
         }
       }
     });

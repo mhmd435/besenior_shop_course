@@ -91,7 +91,7 @@ class SearchTextField extends StatelessWidget {
                             ),),
                         ),
                         suggestionsCallback: (String prefix){
-                          return allProductsRepository.fetchAllProductsDataSearch(ProductsParams(step: 6,categories: [],search: prefix));
+                          return allProductsRepository.fetchAllProductsDataSearch(ProductsParams(step: 6,search: prefix));
                         },
                         itemBuilder: (context, Products model){
                           return ListTile(

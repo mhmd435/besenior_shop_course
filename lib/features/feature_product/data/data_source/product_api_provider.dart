@@ -11,6 +11,9 @@ class ProductsApiProvider {
 
   dynamic callAllProducts(ProductsParams productsParams) async {
     try{
+
+      print(productsParams.categories);
+
       final response = await dio.post(
         "${Constants.baseUrl}/products",
         data: {
